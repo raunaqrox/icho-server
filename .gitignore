@@ -5,3 +5,6 @@ Thumbs.db
 .env
 config/secrets.js
 config/.env
+config.js
+aws_config.json
+.aws
