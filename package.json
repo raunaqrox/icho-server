@@ -17,8 +17,13 @@
   },
   "homepage": "https://github.com/raunaqrox/icho-server#readme",
   "dependencies": {
+    "aws-sdk": "2.2.33",
+    "bcrypt": "0.8.5",
+    "bcrypt-nodejs": "0.0.3",
+    "bluebird": "3.2.2",
     "express": "^4.13.3",
     "kerberos": "0.0.17",
-    "mongodb": "^2.1.0"
+    "mongodb": "^2.1.0",
+    "mongoose": "4.4.2"
   }
 }

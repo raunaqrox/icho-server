@@ -1,0 +1,20 @@
+{
+  "development":{
+      "PORT": 3000,
+      "database": {
+        "url": "mongodb://localhost:27017/icho"
+      },
+      "amazon": {
+        "S3": "https://s3-ap-southeast-1.amazonaws.com/icho/"
+      }
+    },
+  "production":{
+    "PORT": 80,
+    "database": {
+        "url": "mongodb://localhost:27017/icho"
+      },
+    "amazon": {
+      "S3": "https://s3-ap-southeast-1.amazonaws.com/icho/"
+    }
+  }
+}
