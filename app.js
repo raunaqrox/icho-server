@@ -1,17 +1,25 @@
-var express = require('express')
-var app = express()
-var env = process.env.NODE_ENV === 'development' ? 'development' : 'production'
-var config = require('./config/config.json')[env]
-var db = require('./db')(app)
+'use strict'
+const express = require('express')
+const app = express()
+const env = process.env.NODE_ENV === 'development' ? 'development' : 'production'
+const config = require('./config/config.json')[env]
+const db = require('./db')
+const userController = require('./controllers/user')
+const apiDescription = require('./docs/apiDescription.json')
+var port = config.PORT
 
 app.use(function(req, res , next){
 	console.log(req.originalUrl);
 	next();
 });
 
+app.set('json spaces', 20)
+
 app.get('/', function(req, res){
-	res.send("All working");
+	res.json(apiDescription);
 });
+
+app.post('/register', userController.register)
 
 app.get('/api/items', function(req, res){
 	var type = req.query.type;
@@ -37,3 +45,7 @@ app.get('/api/play', function(req, res){
 		
 	});
 });
+
+app.listen(port, () => {
+  console.log("Listening on port ", port)
+})

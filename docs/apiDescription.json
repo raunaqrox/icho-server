@@ -1,0 +1,22 @@
+{
+  "route": {
+    "/": {
+      "GET": {
+        "desctiption": "Get info about all the api's"
+      }
+    },
+    "/api/items": {
+      "GET": {
+        "desctiption": "get the list of all items so far in database"
+      }
+    },
+    "/register": {
+      "POST": {
+        "desctiption": "for creating a new user",
+        "data": {
+          "email": "asd@asd.com"
+        }
+      }
+    }
+  }
+}

@@ -4,6 +4,9 @@
       "database": {
         "url": "mongodb://localhost:27017/icho"
       },
+      "auth":{
+        "secret": "1cH0S3cR3t"
+        },
       "amazon": {
         "S3": "https://s3-ap-southeast-1.amazonaws.com/icho/"
       }
@@ -13,6 +16,9 @@
     "database": {
         "url": "mongodb://localhost:27017/icho"
       },
+      "auth":{
+        "secret": "1cH0S3cR3t"
+        },
     "amazon": {
       "S3": "https://s3-ap-southeast-1.amazonaws.com/icho/"
     }
