@@ -6,6 +6,7 @@ const config = require('./config/config.json')[env]
 const db = require('./db')
 const userController = require('./controllers/user')
 const apiDescription = require('./docs/apiDescription.json')
+const userAuthMiddleware = require('./middlewares/userAuthentication')
 var port = config.PORT
 
 app.use(function(req, res , next){
@@ -13,6 +14,7 @@ app.use(function(req, res , next){
 	next();
 });
 
+// prettify the json I send
 app.set('json spaces', 20)
 
 app.get('/', function(req, res){
