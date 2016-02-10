@@ -1,10 +1,13 @@
-var mongoose = require('mongoose')
-var env = process.env.NODE_ENV === 'development' ? 'development' : 'production'
-var config = require('./config/config.json')[env]
-var url = config.database.url
+const mongoose = require('mongoose')
+const utils = require('./utils')
+const config = utils.getConfig()
+const url = config.database.url
+
+mongoose.Promise = require('bluebird')
+
 mongoose.connect(url)
-var db = mongoose.connection
-var app = require('express')();
+
+const db = mongoose.connection
 
 db.on('error', () => {
   consoe.log("Error connecting")
