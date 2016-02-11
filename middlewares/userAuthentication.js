@@ -1,8 +1,10 @@
+'use strict';
+
 const jwt = require('jwt-simple')
-const env = process.env.NODE_ENV === 'development' ? 'development' : 'production'
-const config = require('../config/config.json')[env]
-const secret = config.auth.secret;
-const db = require('../db');
+const utils = require('../utils')
+const config = utils.getConfig()
+const secret = config.auth.secret
+const db = require('../db')
 
 module.exports = (req, res, next) => {
   let auth_token = req.header('X-Icho-Auth')

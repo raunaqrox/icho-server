@@ -1,7 +1,10 @@
+'use strict';
+
 const db = require('../db')
-const utils = require('./utils')
+const utils = require('../utils')
 const config = utils.getConfig()
 const S3 = config.amazon.S3
+const Item = require('../models/Item')
 
 exports.allItems = (req, res) => {
   const type = req.query.type
@@ -9,7 +12,7 @@ exports.allItems = (req, res) => {
   if(type === "Popular"){
     sort.played = -1
   }
-  db.collection('items').find({$query:{},$orderby:sort}).toArray(function(err, result){
+  Item.find({$query:{},$orderby:sort}).toArray(function(err, result){
     res.json(result)
   })
 }

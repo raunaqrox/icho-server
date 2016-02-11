@@ -12,9 +12,12 @@ const utils = require('./utils')
 const config = utils.getConfig()
 const port = config.PORT
 
+const bodyParser = require('body-parser')
 const userAuthMiddleware = require('./middlewares/userAuthentication')
 
 // middlewares
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(function(req, res , next){
 	console.log(req.originalUrl);
 	next();

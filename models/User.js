@@ -5,17 +5,17 @@ mongoose.Promise = require('bluebird');
 
 
 var userSchema = new mongoose.Schema({
-  email: { type: String, unique: true, lowercase: true },
-  password: String,
+  email: { type: String, unique: true, lowercase: true, required: true },
+  password: {type: String, required: true},
   token: String,
   profile: {
     name: { type: String, default: '' },
     gender: { type: String, default: '' },
-    location: { type: String, default: '' },
-    picture: { type: String, default: '' }
+    location: { type: String, default: '' }
   },
   resetPasswordToken: String,
-  resetPasswordExpires: Date
+  resetPasswordExpires: Date,
+  createdAt: { type: Date, default: Date.now }
 });
 
 /**
